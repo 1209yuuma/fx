@@ -1,0 +1,14 @@
+<footer class="footer">
+  <nav>
+    <ul>
+      <li><%= link_to "日記", new_diary_path %></li>
+      <li><%= link_to "投稿", new_post_path %></li>
+      <li><%= link_to "ログイン", login_path %></li>
+      <% if current_user %>
+        <li><%= link_to "設定", edit_user_path(current_user) %></li>
+        <li><%= link_to "ログアウト", logout_path, data: { "turbo-method": :delete } %></li>
+        <li><%= link_to "マイページ", user_path(current_user) %></li>
+      <% end %>
+    </ul>
+  </nav>
+</footer>

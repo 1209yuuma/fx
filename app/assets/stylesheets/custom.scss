@@ -1,0 +1,254 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* universal */
+
+body {
+  padding-top: 60px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+    text-align: center;
+  }
+
+.center h1 {
+  margin-bottom: 10px;
+}
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1;
+  }
+  
+  h1 {
+    font-size: 3em;
+    letter-spacing: -2px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: 1.2em;
+    letter-spacing: -1px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: normal;
+    
+  }
+  
+  p {
+    font-size: 1.1em;
+    line-height: 1.7em;
+  }
+
+  /* header */
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+}
+
+#logo:hover {
+  color: #fff;
+  text-decoration: none;
+}
+  
+  /* footer */
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0; /* 上下のパディングを調整 */
+  border-top: 1px solid #ccc; /* ボーダーを細く調整 */
+  color: #555;
+}
+
+footer a {
+  text-decoration: none;
+  transition: color 0.3s; /* 色の変化をスムーズにする */
+}
+
+footer a:hover {
+  color: #333; /* ホバー時のテキスト色を変更 */
+}
+
+footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+footer ul li {
+  margin-left: 15px;
+}
+
+  
+  /* 追加のスタイルが必要に応じて適用されます */
+
+  /* フォームスタイル */
+form {
+    display: flex;
+    
+   
+  flex-direction: column;
+  }
+  
+  label {
+    
+   
+  font-size: 14px;
+    margin-bottom: 8px;
+    color: #333;
+  }
+  
+  input {
+    
+   
+  padding: 10px;
+    margin-bottom: 16px;
+    
+   
+  border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  #error_explanation {
+    color: red;
+    ul {
+      color: red;
+      margin: 0 0 30px 0;
+    }
+  }
+  
+  .field_with_errors {
+    @extend .has-error;
+    .form-control {
+      color: $state-danger-text;
+    }
+  }
+
+/* sidebar */
+
+aside {
+  section.user_info {
+    margin-top: 20px;
+  }
+  section {
+    padding: 10px 0;
+    margin-top: 20px;
+    &:first-child {
+      border: 0;
+      padding-top: 0;
+    }
+    span {
+      display: block;
+      margin-bottom: 3px;
+      line-height: 1;
+    }
+    h1 {
+      font-size: 1.4em;
+      text-align: left;
+      letter-spacing: -1px;
+      margin-bottom: 3px;
+      margin-top: 0px;
+    }
+  }
+}
+
+.btn {
+  &.btn-primary {
+    &.btn-lg {
+      background-color: green; // 緑色に変更
+      // 他の必要なスタイルを追加する場合はここに記述します
+    }
+  }
+}
+
+/* Users index */
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid $gray-lighter;
+  }
+}
+
+/* posts */
+
+.posts {
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .content {
+    display: block;
+    margin-left: 60px;
+    img {
+      display: block;
+      padding: 5px 0;
+    }
+  }
+  .timestamp {
+    color: $gray-light;
+    display: block;
+    margin-left: 60px;
+  }
+}
+
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}
+
+span.image {
+  margin-top: 10px;
+  input {
+    border: 0;
+  }
+}
+
+.date-control {
+  width: 130px;
+}
+
+.time-control {
+  width: 100px;
+}
+
+.ratio-control {
+  width: 100px;
+}
+
+/* app/assets/stylesheets/application.css もしくは .scss ファイル内 */
+
+.btn-primary {
+  background-color: green; /* ボタンの背景色を緑に変更 */
+  /* 他のスタイルを適用する場合 */
+}
