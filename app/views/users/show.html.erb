@@ -1,19 +1,26 @@
-<% provide(:title, @user.name) %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= @user.name %>
-      </h1>
-    </section>
-  </aside>
+
+  <h1>
+    <%= @user.name %>
+  </h1>
+
+<div class="posts_content">  
   <% @posts.each do |post| %>
-   <h1>
-   <div> <%= post.date %> </div>
-   <div> <%= post.alphanumeric %> </div>
-   <div> <%= post.risk_reward %> </div>
-   <div> <%= post.content %> </div>
-   </h1>
-   <% end %>
+   <h3>
+   <div> エントリー日時：  <%= post.date %> </div>
+   <div> 時間足：  <%= post.alphanumeric %> </div>
+   <div> リスクリワード： <%= post.risk_reward %> </div>
+   <div> エントリー根拠：  <%= link_to post.content, post_path(post) %></div>
    
+   </h3> 
+   
+   <h4>
+    <div>
+      <%= link_to "削除", post, data: { "turbo-method": :delete,
+                                          turbo_confirm: "この投稿を削除しますか?" } %> 
+    <div>                                      
+   </h4>                                                                        
+  <% end %>
+</div>
+  
+
 </div>

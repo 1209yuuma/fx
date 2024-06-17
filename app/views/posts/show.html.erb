@@ -1,3 +1,12 @@
-<%= turbo_frame_tag "new_comment" do %>
-    <%= link_to "コメント", new_post_comment_path(@post.id) %>
+
+<% @comments.each do |comment| %>
+  <h3>  
+    <div> <%= comment.comment_content %> </div>
+    <%= link_to "削除", comment, data: { "turbo-method": :delete,
+                                          turbo_confirm: "このコメントを削除しますか?" } %>
+  </h3>                                        
 <% end %>
+
+<h3>
+  <%= link_to "コメントする", new_post_comment_path(@post.id) %>
+</h3>
