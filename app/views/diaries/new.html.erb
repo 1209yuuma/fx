@@ -1,2 +1,16 @@
-<h1>Diaries#new</h1>
-<p>Find me in app/views/diaries/new.html.erb</p>
+<% provide(:title, 'トレード日記') %>
+<h1>トレード日記</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_with(model: @diary) do |f| %>
+        <%= f.label :タイトル %>
+        <%= f.text_field :title, class: 'title-control' %>
+
+        <%= f.label :内容 %>
+        <%= f.text_field :content, class: 'diary-control' %>
+        <%= f.submit "投稿する", class: "btn btn-primary" %>
+    <% end %>
+    
+    <p> <%= link_to "日記一覧", diaries_path %></p>
+  </div>
+</div>

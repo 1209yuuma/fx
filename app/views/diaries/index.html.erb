@@ -1,0 +1,12 @@
+<% provide(:title, 'トレード日記一覧') %>
+<h1>トレード日記一覧</h1>
+
+<%= will_paginate %>
+
+<ul class="diaries">
+  <% @diaries.each do |diary| %>
+    <div> <%= link_to diary.title, diary_path(diary) %> </div>
+  <% end %>
+</ul>
+
+<%= will_paginate %>

@@ -4,14 +4,12 @@ class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.build(comment_params)
     @comment.save
-     respond_to do |format|
-      format.turbo_stream
-    end
+    redirect_to post_path(@comment.post)
   end
 
   def new
-    @comment = Comment.new
     @comment = current_user.comments.build
+    @post = Post.find(params[:post_id])
   end
   
   def edit
@@ -21,11 +19,13 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    Comment.find(params[:id]).destroy
+    redirect_to request.referer
   end
 
   private
 
     def comment_params
-      params.require(:comment).permit(:content).merge(post_id: params[:post_id])
+      params.require(:comment).permit(:comment_content).merge(post_id: params[:post_id])
     end
 end

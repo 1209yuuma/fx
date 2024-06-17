@@ -8,7 +8,6 @@ class PostsController < ApplicationController
     def create
         @post = current_user.posts.build(post_params)
         if @post.save
-            flash[:success] = "投稿に成功しました。"
             redirect_to user_path(current_user)
         else
             render 'new', status: :unprocessable_entity
@@ -16,10 +15,13 @@ class PostsController < ApplicationController
     end
 
     def destroy
+      Post.find(params[:id]).destroy
+      redirect_to request.referer
     end
 
     def show
         @post = Post.find(params[:id])
+        @comments = @post.comments.paginate(page: params[:page])
     end
 
     private
@@ -27,4 +29,5 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:date, :alphanumeric, :risk_reward, :content)
   end
+
 end

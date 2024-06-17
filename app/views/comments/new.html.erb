@@ -1,5 +1,5 @@
 <%= form_with(model: [@post, @comment]) do |f| %>
-    <%= f.text_area :content, placeholder: "コメント" %>
-    <%= f.submit "投稿" %>
+    <%= f.text_area :comment_content, placeholder: "コメントする" %>
+    <%= f.submit "コメントする" %>
 <% end %>
   

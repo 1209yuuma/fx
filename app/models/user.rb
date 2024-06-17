@@ -1,6 +1,11 @@
 class User < ApplicationRecord
     has_many :posts, dependent: :destroy
     has_many :comments, dependent: :destroy
+    has_many :diaries, dependent: :destroy
+    has_many :favorites, dependent: :destroy
+    has_many :favorites_posts, through: :favorites, source: :post
+
+    
     before_save { email.downcase! }
     validates :name, presence: true, length: { maximum: 50 }
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -24,4 +29,23 @@ class User < ApplicationRecord
     def session_token
         remember_digest || remember
     end
+
+    def mine?(object)
+        object.user_id == id
+    end
+
+    def favorite(post)
+        favorites_posts << post
+    end
+     
+    def unfavorite(post)
+        favorites_posts.destroy(post)
+    end
+     
+
+    def favorite?(post)
+        favorites_posts.include?(post)
+    end
+     
+    
 end
